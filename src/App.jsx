@@ -1,29 +1,20 @@
-import { useState } from 'react'
-import Nav from './components/Nav'
-import './App.css'
-import Hero from './components/Hero'
-import Hero02 from './components/Hero02'
-import Cards from './components/Cards'
+// import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import './index.css'
+import HomePage from './Components/HomePage'
+import SignIn from './Components/SignIn'
+import Dashboard from './Components/Dashboard'
 
 function App() {
 
   return (
-    <>
-    <main className='relative '>
-    <Nav/>
-
-    <section className='mt-6'>
-      <Hero/>
-    </section>
-    <section>
-        <Hero02/>
-      </section> 
-       <section className='m-10'>
-        <Cards/>
-      </section>
-
-    </main>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<HomePage />}></Route>
+        <Route path='/signin' element={<SignIn />}></Route>
+        <Route path='/dashboard' element={<Dashboard />}></Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
