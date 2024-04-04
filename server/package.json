@@ -11,13 +11,13 @@
   },
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.cjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "aditya G",
   "license": "ISC",
-  "description": ""
+  "description": "backend code"
 }
