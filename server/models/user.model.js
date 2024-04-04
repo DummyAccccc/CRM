@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const UserModel = new Schema(
+const UserSchema = new Schema(
     {
         role: {
             type: String,
@@ -28,3 +28,5 @@ const UserModel = new Schema(
         timestamps: true
     }
 )
+
+export const User = mongoose.model("User", UserSchema)
