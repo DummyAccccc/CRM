@@ -1,6 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const DNavbar = (props) => {
+
     return (
 
         <div className="navbar bg-base-100">
@@ -12,8 +14,8 @@ const DNavbar = (props) => {
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal px-1">
-                    <li><a>Courses</a></li>
-                    <li><a>Instructor</a></li>
+                    <li><Link to="/dashboard/courses" >Courses</Link></li>
+                    <li><Link to="/dashboard/instructor">Instructor</Link></li>
                     <li><a>Students</a></li>
                     <li><a>Payments</a></li>
                     <li>

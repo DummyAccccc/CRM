@@ -1,14 +1,21 @@
 import React from 'react'
 
 const CourseCard = (props) => {
+    const cardData = props.data
+
     return (
-        <div className="card card-compact  bg-base-100 shadow-xl">
-            <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+        <div className="card card-compact w-full bg-base-100 shadow-xl">
+            {/* <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
             <div className="card-body">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+                <h2 className="card-title text-3xl">{cardData.title}</h2>
+                <p className='text-md'>{cardData.desc}</p>
+                <div className="divider"></div>
+
+                <p className='text-md'><span className="font-bold text-md">Prerequisites</span>: {cardData.pre}</p>
+                <p className='text-md'><span className="font-bold text-md">Enrollment Criteria:</span> {cardData.criteria}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <button className="btn btn-success px-4 rounded-lg">Edit</button>
+                    <button className="btn btn-error px-4 rounded-lg">Delete</button>
                 </div>
             </div>
         </div>
