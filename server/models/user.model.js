@@ -18,13 +18,10 @@ const userSchema = new mongoose.Schema(
         mobile: {
             type: String,
             required: true,
-            unique: true,
             lowercase: true
         },
         company: {
-            type: String,
-            unique: true,
-            lowercase: true
+            type: String
         },
         password: {
             type: String,

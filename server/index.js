@@ -22,10 +22,12 @@ mongoose.connect(`${MONGODB_URL}/${DB_NAME}`)
 // Define a route to handle POST requests to create a new user
 app.post('/users', async (req, res) => {
     try {
+
         const { user, email, mobile, company, password } = req.body;
+        console.log(user)
 
         // Create a new user object from the request body
-        const newUser = new User({ role: user, email: email, mobile: mobile, company: company, password: password });
+        const newUser = new User(user != "Administrator" ? { role: user, email: email, mobile: mobile, password: password } : { role: user, email: email, mobile: mobile, company: company, password: password });
 
         // Save the new user to the database
         const savedUser = await newUser.save();

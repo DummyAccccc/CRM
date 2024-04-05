@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 
+
 const Login = (props) => {
 
 
@@ -11,6 +12,8 @@ const Login = (props) => {
     const [userData, setUserData] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
+    const [invalidUser, setInvalidUser] = useState(false);
+
 
     useEffect(() => {
 
@@ -37,15 +40,23 @@ const Login = (props) => {
 
         userData.map((val, index) => {
             if (val.email == email && val.password == password) {
-                // console.log("logged in successfully");
-                // setIsLoggedIn(true);
-                
-                navigate('/dashboard')
+                navigate('/dashboard', {
+                    state: {
+                        email: val.email,
+                        company: val.company,
+                        role: val.role
+                    }
+                })
+
+            } else {
+                setInvalidUser(true)
             }
         })
 
-        // if (isLoggedIn) {
-        // }
+        if(invalidUser){
+            console.log("invalid credentials")
+        }
+
 
 
 

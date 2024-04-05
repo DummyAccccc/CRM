@@ -13,14 +13,12 @@ const CreateAccountFrom = () => {
     const SignInHandler = async (e) => {
         e.preventDefault();
 
-        console.log(user + email + mobile + company + password)
-
         const response = await fetch('http://localhost:3001/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ user, email, mobile, company, password })
+            body: JSON.stringify(user != "Administrator" ? { user, email, mobile, password } : { user, email, mobile, company, password })
         });
 
         if (response.ok) {
