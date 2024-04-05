@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --primary-100:#2C3E50;
+    --primary-200:#57687c;
+    --primary-300:#b4c7dd;
+    --accent-100:#3498DB;
+    --accent-200:#004079;
+    --text-100:#FFFFFF;
+    --text-200:#e0e0e0;
+    --bg-100:#1A1B2A;
+    --bg-200:#292a3a;
+    --bg-300:#414253;
+      
+      
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .button {
+    background-color: var(--primary-color);
+    color: #fff;
+  }
+  
+  .button-accent {
+    background-color: var(--accent-color);
+    color: #fff;
+  }
+  
+  .primary-text {
+    color: var(--primary-color);
+  }
+  
+  .secondary-text {
+    color: var(--secondary-color);
+  }
+  
+  .accent-text {
+    color: var(--accent-color);
+  }
+  
