@@ -7,6 +7,7 @@ import Dashboard from './Components/Dashboard'
 import Courses from './Components/Courses'
 import Instructor from './Components/Instructor'
 import NewCourse from './Components/NewCourse'
+import AssignCourse from './Components/AssignCourse'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path='/dashboard/courses' element={<Courses />}></Route>
         <Route path='/dashboard/instructor' element={<Instructor />}></Route>
         <Route path='/dashboard/newcourse' element={<NewCourse />}></Route>
+        <Route path='/dashboard/assigncourse' element={<AssignCourse />}></Route>
       </Routes>
     </BrowserRouter>
   )

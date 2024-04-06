@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 const Courses = () => {
 
     const [courses, setCourses] = useState([]);
+    const [assignInstructor, setAssignInstructor] = useState([]);
     useEffect(() => {
 
         fetchData()
+        fetchAssign()
 
     }, []);
 
@@ -19,7 +21,19 @@ const Courses = () => {
             }
             const data = await response.json();
             await setCourses(data);
-            console.log(data)
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const fetchAssign = async () => {
+        try {
+            const response = await fetch('http://localhost:3001/fetchassign'); // Assuming your backend is running on the same host
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            const data = await response.json();
+            await setAssignInstructor(data);
         } catch (error) {
             console.error(error);
         }
@@ -39,13 +53,13 @@ const Courses = () => {
 
                 <div className='w-full grid grid-cols-1 lg:grid-cols-3 px-8 py-4 gap-4'>
                     {courses.map((val, index) => {
-                        console.log(val);
-                        return <CourseCard data={val} />
+                        return <CourseCard data={val} assign={assignInstructor} key={index} />
                     })}
 
                 </div>
 
             </div>
+            {/* <div className="divider"></div> */}
 
         </>
     )

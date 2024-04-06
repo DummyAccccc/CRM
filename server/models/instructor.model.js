@@ -1,19 +1,16 @@
 // import mongoose, { Schema } from "mongoose";
 const mongoose = require('mongoose')
 
-const courseSchema = new mongoose.Schema(
+const instructorSchema = new mongoose.Schema(
 
     {
-        title: {
+        name: {
             type: String,
         },
-        desc: {
+        email: {
             type: String,
         },
-        pre: {
-            type: String,
-        },
-        criteria: {
+        course: {
             type: String,
         },
 
@@ -24,5 +21,5 @@ const courseSchema = new mongoose.Schema(
 )
 
 
-const Course = mongoose.model("Course", courseSchema)
-module.exports = Course
+const Instructor = mongoose.model("Instructor", instructorSchema)
+module.exports = Instructor

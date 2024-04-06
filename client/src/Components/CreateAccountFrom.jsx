@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 const CreateAccountFrom = () => {
     const [user, setUser] = useState("");
     const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const [mobile, setMobile] = useState("");
     const [company, setCompany] = useState("");
     const [password, setPassword] = useState("");
@@ -18,7 +19,7 @@ const CreateAccountFrom = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user != "Administrator" ? { user, email, mobile, password } : { user, email, mobile, company, password })
+            body: JSON.stringify(user != "Administrator" ? { user, name, email, mobile, password } : { user, name, email, mobile, company, password })
         });
 
         if (response.ok) {
@@ -37,6 +38,10 @@ const CreateAccountFrom = () => {
                     <h1 className='text-2xl md:text-4xl font-bold text-white text-center'>Create {user} Account </h1>
 
                     <form onSubmit={SignInHandler} className='text-xl'>
+                        <div className='w-full mb-4 flex flex-col gap-2'>
+                            <label htmlFor="" className='px-3 text-sm md:text-lg'>Full Name</label>
+                            <input type="name" placeholder='Enter Full Name' className='border-b-4 border-none p-3 bg-slate-700 rounded-md outline-none focus:ring-indigo-600 focus:ring-2 text-sm md:text-lg' onChange={(e) => setName(e.target.value)} value={name} />
+                        </div>
                         <div className='w-full mb-4 flex flex-col gap-2'>
                             <label htmlFor="" className='px-3 text-sm md:text-lg'>Email Address</label>
                             <input type="email" placeholder='Enter email address' className='border-b-4 border-none p-3 bg-slate-700 rounded-md outline-none focus:ring-indigo-600 focus:ring-2 text-sm md:text-lg' onChange={(e) => setEmail(e.target.value)} value={email} />

@@ -20,6 +20,7 @@ const Dashboard = () => {
 
             <DNavbar role={activeUser} />
             <Courses />
+
             <Instructor />
 
         </>
